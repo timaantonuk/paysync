@@ -2,8 +2,12 @@ import {Label} from "@/components/ui/label";
 import {Input} from "@/components/ui/input";
 import {Textarea} from "@/components/ui/textarea";
 import {Button} from "@/components/ui/button";
+import {createAction} from "@/app/actions";
 
-function Page({}) {
+export default async function Page({}) {
+
+
+
     return (
         <main className='flex flex-col justify-center h-full max-w-5xl mx-auto gap-6 my-12'>
             <div className='flex justify-between'>
@@ -12,7 +16,8 @@ function Page({}) {
                 </h1>
             </div>
 
-            <form className='grid gap-4 max-w-xs'>
+
+            <form action={createAction} className='grid gap-4 max-w-xs'>
                 <div>
                     <Label htmlFor='name' className='block font-semibold text-sm mb-2'>Billing Name</Label>
                     <Input name='name' id='name' type="text"/>
@@ -20,12 +25,12 @@ function Page({}) {
 
                 <div>
                     <Label htmlFor='email' className='block font-semibold text-sm mb-2'>Billing Email</Label>
-                    <Input name='email' id='email' type="text"/>
+                    <Input name='email' id='email' type="email"/>
                 </div>
 
                 <div>
                     <Label htmlFor='value' className='block font-semibold text-sm mb-2'>Value</Label>
-                    <Input name='value' id='value' type="text"/>
+                    <Input name='value' id='value' type="number"/>
                 </div>
 
                 <div>
@@ -41,5 +46,3 @@ function Page({}) {
         </main>
     )
 }
-
-export default Page;
